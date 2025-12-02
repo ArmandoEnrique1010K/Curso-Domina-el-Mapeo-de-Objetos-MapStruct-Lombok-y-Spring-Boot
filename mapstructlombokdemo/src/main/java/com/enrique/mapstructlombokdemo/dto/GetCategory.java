@@ -9,11 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class GetProduct {
-
-  private long productId;
-  private String productName;
-  private String creationDate;
-  private GetCategory productCategory;
-  private String price;
+public class GetCategory {
+  private long categoryId;
+  private String categoryName;
 }

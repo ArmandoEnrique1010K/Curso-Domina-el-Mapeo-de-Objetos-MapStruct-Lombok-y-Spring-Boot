@@ -1,11 +1,24 @@
 package com.enrique.mapstructlombokdemo.entity;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Entity
+@Table(name = "product")
 public class Product {
   @Id
   private long id;
@@ -15,33 +28,9 @@ public class Product {
   @Column(name = "creation_date")
   private LocalDateTime creationDate;
 
-  public long getId() {
-    return id;
-  }
+  private BigDecimal price;
 
-  public void setId(long id) {
-    this.id = id;
-  }
-
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public LocalDateTime getCreationDate() {
-    return creationDate;
-  }
-
-  public void setCreationDate(LocalDateTime creationDate) {
-    this.creationDate = creationDate;
-  }
-
-  @Override
-  public String toString() {
-    return "Product [id=" + id + ", name=" + name + ", creationDate=" + creationDate + "]";
-  }
-
+  @ManyToOne
+  @JoinColumn(name = "category_id")
+  private Category category;
 }
