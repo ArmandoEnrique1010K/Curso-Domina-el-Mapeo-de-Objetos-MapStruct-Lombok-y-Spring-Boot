@@ -18,8 +18,10 @@ public class InitDatabase {
   @Autowired
   private ProductRepository productRepository;
 
+  @Autowired
+  private ProductMapper productMapper;
   // private ProductMapper productMapper = Mappers.getMapper(ProductMapper.class);
-  private ProductMapper productMapper = ProductMapper.INSTANCE;
+  // private ProductMapper productMapper = ProductMapper.INSTANCE;
 
   @Bean
   public CommandLineRunner testProductMapperCommand() {
